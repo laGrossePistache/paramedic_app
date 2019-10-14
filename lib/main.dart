@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pages/homePage.dart';
+import 'pages/medPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
       initialRoute: HomePage.id,
       routes: {
         HomePage.id : (context) => HomePage(),
+        MedPage.id : (context) => MedPage()
       },
     );
   }
