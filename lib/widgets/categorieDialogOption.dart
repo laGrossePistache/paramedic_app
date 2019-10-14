@@ -12,12 +12,17 @@ class CategorieDialogOption extends StatelessWidget {
     return SimpleDialogOption(
       child: Row(
         children: <Widget>[
-          Icon(FontAwesomeIcons.circle, size: 10,),
+          Icon(
+            FontAwesomeIcons.circle,
+            size: 10,
+          ),
           SizedBox(
             width: 10,
           ),
-          Text(
-            title,
+          Expanded(
+            child: Text(
+              title,
+            ),
           )
         ],
       ),

@@ -8,20 +8,13 @@ class CategoriesTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Container(
-      margin: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 10.0),
+      margin: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 10.0),
       child: Column(
         children: <Widget>[
-          Text(
-            'Catégories',
-            style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.black45),
-          ),
           Expanded(
               child: Container(
-            padding: EdgeInsets.only(top: 8.0),
             child: GridView.count(
+              padding: EdgeInsets.symmetric(vertical: 15.0),
               crossAxisCount: 2,
               crossAxisSpacing: 8.0,
               mainAxisSpacing: 15.0,
@@ -68,7 +61,7 @@ class CategoriesTab extends StatelessWidget {
                   title: 'Techniques',
                   description: 'Combitube, Oxylator, Valve de boussignac..',
                   categorieData: CategorieData(),
-                )
+                ),
               ],
             ),
           ))

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:paramedic_app/pages/categoriesTab.dart';
+import 'package:paramedic_app/widgets/categoriesTab.dart';
 
 class HomePage extends StatelessWidget {
   static const id = 'homePage';

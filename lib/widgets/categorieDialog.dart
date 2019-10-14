@@ -27,7 +27,7 @@ class CategorieDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return SimpleDialog(
       titlePadding: EdgeInsets.symmetric(vertical: 10.0),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.white, 
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       title: Text(
         title,

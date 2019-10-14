@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:paramedic_app/widgets/categoriesTab.dart';
 
 class MedPage extends StatelessWidget {
   static const id = 'medPage';
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      initialIndex: 1,
-      length: 3,
+      initialIndex: 0,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -28,22 +27,24 @@ class MedPage extends StatelessWidget {
             unselectedLabelColor: Colors.white,
             tabs: <Widget>[
               Tab(
-                icon: Icon(FontAwesomeIcons.home),
+                icon: Icon(FontAwesomeIcons.info),
               ),
               Tab(
-                icon: Icon(FontAwesomeIcons.bookMedical),
+                icon: Icon(FontAwesomeIcons.solidCheckCircle),
               ),
               Tab(
-                icon: Icon(FontAwesomeIcons.user),
+                icon: Icon(FontAwesomeIcons.solidTimesCircle),
               ),
+              Tab(icon: Icon(FontAwesomeIcons.syringe),)
             ],
           ),
         ),
         body: TabBarView(
           children: <Widget>[
-            Icon(FontAwesomeIcons.home),
-            CategoriesTab(),
-            Icon(FontAwesomeIcons.user),
+            Icon(FontAwesomeIcons.info),
+            Icon(FontAwesomeIcons.solidCheckCircle),
+            Icon(FontAwesomeIcons.solidTimesCircle),
+            Icon(FontAwesomeIcons.syringe),
           ],
         ),
       ),

@@ -43,17 +43,20 @@ class CategorieButton extends StatelessWidget {
             title,
             style: TextStyle(
                 color: colorsNegative ? Colors.white : Colors.blue[800],
-                fontSize: 20.0,
+                fontSize: 16.0,
                 fontWeight: FontWeight.bold),
           ),
           SizedBox(
             height: 10.0,
           ),
-          Text(
-            description,
-            style: TextStyle(
-                fontStyle: FontStyle.italic,
-                color: (colorsNegative) ? Colors.white70 : Colors.blue[700]),
+          Expanded(
+            child: Text(
+              description,
+              style: TextStyle(
+                fontSize: 12.0,
+                  fontStyle: FontStyle.italic,
+                  color: (colorsNegative) ? Colors.white70 : Colors.blue[700]),
+            ),
           ),
         ],
       ),
