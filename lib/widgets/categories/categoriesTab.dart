@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:paramedic_app/models/categorieData.dart';
-import 'package:paramedic_app/widgets/categorieButton.dart';
+import 'package:paramedic_app/widgets/categories/categorieButton.dart';
 
 class CategoriesTab extends StatelessWidget {
   @override

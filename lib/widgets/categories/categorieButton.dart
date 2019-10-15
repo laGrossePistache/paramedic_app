@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paramedic_app/models/categorieData.dart';
-import 'package:paramedic_app/widgets/categorieDialog.dart';
+import 'package:paramedic_app/widgets/categories/categorieDialog.dart';
 
 class CategorieButton extends StatelessWidget {
   final IconData icon;

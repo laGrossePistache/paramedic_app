@@ -3,16 +3,18 @@ ProviderData enregistre les variables qui doivent être utiliser dans différent
 On l'utilise pour le StateManagement
 */
 
+import 'package:paramedic_app/constant.dart';
 import 'package:paramedic_app/models/medicamentData.dart';
 import 'package:flutter/foundation.dart';
 
-class UserData extends ChangeNotifier {
-  MedicamentData _currentMedicamentData;
+class GlobalData extends ChangeNotifier { 
 
-  set currentMedicamentData(MedicamentData data){
-    _currentMedicamentData = data;
+  String _currentContent;
+
+
+  String get currentContent => _currentContent;
+  set currentContent(String newContent){
+    _currentContent = newContent;
     notifyListeners();
   }
-
-  void get getCurrentMedicamentData => _currentMedicamentData;
 }

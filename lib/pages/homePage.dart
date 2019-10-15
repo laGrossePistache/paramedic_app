@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:paramedic_app/widgets/categoriesTab.dart';
+import 'package:paramedic_app/constant.dart';
+import 'package:paramedic_app/widgets/categories/categoriesTab.dart';
 
 class HomePage extends StatelessWidget {
   static const id = 'homePage';
@@ -15,7 +16,7 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.blue[800],
           title: Text(
             'Paramédic App',
-            style: TextStyle(color: Colors.yellow),
+            style: kAppBarTitleTextStyle,
           ),
           bottom: TabBar(
             indicatorColor: Colors.yellow,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'models/userData.dart';
+import 'models/globalData.dart';
 import 'pages/homePage.dart';
 import 'pages/medPage.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      builder: (context) => UserData(),
+      builder: (context) => GlobalData(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Paramédic App',

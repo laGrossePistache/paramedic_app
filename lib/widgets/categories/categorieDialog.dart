@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paramedic_app/models/categorieData.dart';
-import 'package:paramedic_app/widgets/categorieDialogOption.dart';
+import 'package:paramedic_app/widgets/categories/categorieDialogOption.dart';
 
 class CategorieDialog extends StatelessWidget {
   final String title;
@@ -9,17 +9,21 @@ class CategorieDialog extends StatelessWidget {
   CategorieDialog({this.title, this.categorieData});
 
   List<Widget> getDialogOption() {
-    Map<String, String> mapData = categorieData.getDataMap;
     List<Widget> dialogOptionWidgets = [];
-    mapData.forEach(
-      (k, v) {
-        dialogOptionWidgets.add(Divider(thickness: 1,));
-        dialogOptionWidgets.add(CategorieDialogOption(
-          title: k,
-          pageName: v,
-        ));
-      },
-    );
+    List<Map<String, String>> dataList = categorieData.categorieDataList;
+    for (Map<String, String> currentMapData in dataList) {
+      dialogOptionWidgets.add(
+        Divider(
+          thickness: 1,
+        ),
+      );
+      dialogOptionWidgets.add(CategorieDialogOption(
+        title: currentMapData['name'],
+        pageName: currentMapData['page'],
+        content: currentMapData['content'],
+      ));
+    }
+
     return dialogOptionWidgets;
   }
 
@@ -27,7 +31,7 @@ class CategorieDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return SimpleDialog(
       titlePadding: EdgeInsets.symmetric(vertical: 10.0),
-      backgroundColor: Colors.white, 
+      backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       title: Text(
         title,

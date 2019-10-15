@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:paramedic_app/models/globalData.dart';
+import 'package:provider/provider.dart';
 
 class CategorieDialogOption extends StatelessWidget {
   final String title;
   final String pageName;
+  final String content;
 
-  CategorieDialogOption({this.title, this.pageName});
+  CategorieDialogOption({this.title, this.pageName, this.content});
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +30,7 @@ class CategorieDialogOption extends StatelessWidget {
         ],
       ),
       onPressed: () {
+        Provider.of<GlobalData>(context).currentContent = content;
         Navigator.pop(context);
         Navigator.pushNamed(context, pageName);
       },
