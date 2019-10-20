@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:paramedic_app/models/categorieData.dart';
+import 'package:paramedic_app/models/categorieDataRetriever.dart';
 import 'package:paramedic_app/widgets/categories/categorieDialog.dart';
 
 class CategorieButton extends StatelessWidget {
@@ -8,16 +8,15 @@ class CategorieButton extends StatelessWidget {
   final String description;
   final bool colorsNegative;
   final bool isActive;
-  final CategorieData categorieData;
+  final List<CategorieData> categorieData;
 
-  CategorieButton({
-    this.icon,
-    this.title,
-    this.description,
-    this.colorsNegative,
-    this.isActive,
-    this.categorieData,
-  });
+  CategorieButton(
+      {this.icon,
+      this.title,
+      this.description,
+      this.colorsNegative,
+      this.isActive,
+      this.categorieData});
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +25,9 @@ class CategorieButton extends StatelessWidget {
       padding: EdgeInsets.fromLTRB(15, 25, 15, 15),
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: BorderSide(color: Colors.grey, width: 0.5)),
+          side: BorderSide(color: Colors.blue[800], width: 1.0)),
       color: (colorsNegative) ? Colors.blue[800] : Colors.white,
       child: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Icon(
             icon,
@@ -53,7 +51,7 @@ class CategorieButton extends StatelessWidget {
             child: Text(
               description,
               style: TextStyle(
-                fontSize: 12.0,
+                  fontSize: 12.0,
                   fontStyle: FontStyle.italic,
                   color: (colorsNegative) ? Colors.white70 : Colors.blue[700]),
             ),
@@ -62,11 +60,12 @@ class CategorieButton extends StatelessWidget {
       ),
       onPressed: () async {
         showDialog(
-            context: context,
-            builder: (context) => CategorieDialog(
-                  title: title,
-                  categorieData: categorieData,
-                ));
+          context: context,
+          builder: (context) => CategorieDialog(
+            title: title,
+            categorieData: categorieData,
+          ),
+        );
       },
     );
   }

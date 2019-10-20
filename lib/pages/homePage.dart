@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:paramedic_app/constant.dart';
 import 'package:paramedic_app/widgets/categories/categoriesTab.dart';
+import 'package:paramedic_app/widgets/favorites/favoritesTab.dart';
 
 class HomePage extends StatelessWidget {
   static const id = 'homePage';
@@ -9,14 +9,12 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       initialIndex: 1,
-      length: 3,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           leading: Icon(FontAwesomeIcons.heartbeat),
-          backgroundColor: Colors.blue[800],
           title: Text(
             'Paramédic App',
-            style: kAppBarTitleTextStyle,
           ),
           bottom: TabBar(
             indicatorColor: Colors.yellow,
@@ -30,7 +28,10 @@ class HomePage extends StatelessWidget {
                 icon: Icon(FontAwesomeIcons.bookMedical),
               ),
               Tab(
-                icon: Icon(FontAwesomeIcons.user),
+                icon: Icon(FontAwesomeIcons.solidHeart),
+              ),
+              Tab(
+                icon: Icon(FontAwesomeIcons.solidUser),
               ),
             ],
           ),
@@ -39,7 +40,8 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             Icon(FontAwesomeIcons.home),
             CategoriesTab(),
-            Icon(FontAwesomeIcons.user),
+            FavoritesTab(),
+            Icon(FontAwesomeIcons.solidUser),
           ],
         ),
       ),

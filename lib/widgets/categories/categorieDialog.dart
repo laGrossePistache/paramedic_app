@@ -1,26 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:paramedic_app/models/categorieData.dart';
+import 'package:paramedic_app/models/categorieDataRetriever.dart';
+import 'package:paramedic_app/models/globalData.dart';
 import 'package:paramedic_app/widgets/categories/categorieDialogOption.dart';
+import 'package:provider/provider.dart';
 
 class CategorieDialog extends StatelessWidget {
   final String title;
-  final CategorieData categorieData;
+  final List<CategorieData> categorieData;
 
   CategorieDialog({this.title, this.categorieData});
 
-  List<Widget> getDialogOption() {
+  List<Widget> getDialogOption(BuildContext context) {
     List<Widget> dialogOptionWidgets = [];
-    List<Map<String, String>> dataList = categorieData.categorieDataList;
-    for (Map<String, String> currentMapData in dataList) {
+    for (CategorieData currentMapData in categorieData) {
       dialogOptionWidgets.add(
         Divider(
           thickness: 1,
         ),
       );
       dialogOptionWidgets.add(CategorieDialogOption(
-        title: currentMapData['name'],
-        pageName: currentMapData['page'],
-        content: currentMapData['content'],
+        title: currentMapData.name,
+        pageName: currentMapData.page,
+        content: currentMapData.content,
+        onPressed: () {
+          Provider.of<GlobalData>(context).currentCategorie = currentMapData;
+          Navigator.pop(context);
+          Navigator.pushNamed(context, currentMapData.page);
+        },
       ));
     }
 
@@ -37,7 +43,7 @@ class CategorieDialog extends StatelessWidget {
         title,
         textAlign: TextAlign.center,
       ),
-      children: getDialogOption(),
+      children: getDialogOption(context),
     );
   }
 }

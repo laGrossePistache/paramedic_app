@@ -1,20 +1,55 @@
 /*
-ProviderData enregistre les variables qui doivent être utiliser dans différents State.. 
+GlobalData enregistre les variables qui doivent être utiliser dans différents State.. 
 On l'utilise pour le StateManagement
 */
-
-import 'package:paramedic_app/constant.dart';
-import 'package:paramedic_app/models/medicamentData.dart';
 import 'package:flutter/foundation.dart';
+import 'package:paramedic_app/models/categorieDataRetriever.dart';
 
-class GlobalData extends ChangeNotifier { 
+class GlobalData extends ChangeNotifier {
+  CategorieData _currentCategorie;
+  List<CategorieData> _favoritesCategories = [];
 
-  String _currentContent;
+// Getter
+  CategorieData get currentCategorie => _currentCategorie;
+  List<CategorieData> get favoritesCategories => _favoritesCategories;
 
-
-  String get currentContent => _currentContent;
-  set currentContent(String newContent){
-    _currentContent = newContent;
+// Setter
+  set currentCategorie(CategorieData newCategorieData) {
+    _currentCategorie = newCategorieData;
     notifyListeners();
+  }
+
+  String setFavoriteCategorie() {
+    String answer = '';
+    bool isAlreadyFavorite = false;
+    int index = 0;
+    for (var i = 0; i < _favoritesCategories.length; i++) {
+      if (_favoritesCategories[i].content == _currentCategorie.content) {
+        isAlreadyFavorite = true;
+        index = i;
+      }
+    }
+    if (isAlreadyFavorite) {
+      // On retire le favoris
+      _favoritesCategories.removeAt(index);
+      answer = 'Cette page a été retiré de vos favoris';
+    } else if (_favoritesCategories.length < 10) {
+      // Si n'est pas favoris et inférieur è 10
+      _favoritesCategories.add(currentCategorie);
+      answer = 'Cette page a été ajouté à vos favoris';
+    } else {
+      answer = 'Vous avez déjà atteint le maximum de page favoris (10)';
+    }
+    return answer;
+  }
+
+  bool checkForFavoriteCategorie() {
+    if (_favoritesCategories.length == 0) return false;
+    for (CategorieData categorie in _favoritesCategories) {
+      if (categorie.content == _currentCategorie.content) {
+        return true;
+      }
+    }
+    return false;
   }
 }

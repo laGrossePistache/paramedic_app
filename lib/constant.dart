@@ -15,8 +15,14 @@ enum ContentParamedic{
 const kAppBarTitleTextStyle = TextStyle(color: Colors.yellow,
 fontWeight: FontWeight.bold);
 
-const kTitleTextStyle = TextStyle(
+const kTitleTextStyleTab = TextStyle(
     color: Colors.black54,
     fontWeight: FontWeight.bold,
     fontSize: 20.0,
+    fontStyle: FontStyle.italic);
+
+const kSubTitleTextStyleTab = TextStyle(
+    color: Colors.black54,
+    fontWeight: FontWeight.bold,
+    fontSize: 16.0,
     fontStyle: FontStyle.italic);
