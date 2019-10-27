@@ -25,6 +25,7 @@ class MedPage extends StatelessWidget {
   }
 
   bool checkCriteria() {
+
     bool isInclusionOkay = false;
     for (bool item in currentMedicamentData.criteresInclusion) {
       if (item == true) isInclusionOkay = true;
@@ -80,8 +81,8 @@ class MedPage extends StatelessWidget {
           );
         })) {
       case 'oui':
-        currentMedicamentData.resetMedState();
         showFlushBar(context);
+        currentMedicamentData.resetMedState();
         break;
       case 'non':
         break;
@@ -107,7 +108,7 @@ class MedPage extends StatelessWidget {
             backgroundColor: Colors.yellow,
             onPressed: () async {
               if (!checkCriteria()) {
-                _askedToLead(context);
+                await _askedToLead(context);
               } else {
                 //TODO; add time  to list for last med
                 currentMedicamentData.resetMedState();

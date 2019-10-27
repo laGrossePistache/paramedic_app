@@ -44,7 +44,8 @@ class MedicamentData extends ChangeNotifier {
 
   void resetMedState(){
     initMedState();
-    notifyListeners();
+    print('should reset..');
+        notifyListeners();
   }
 
   List<bool> get criteresInclusion => _criteresInclusion;

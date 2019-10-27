@@ -1,3 +1,4 @@
+import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:paramedic_app/models/globalData.dart';
@@ -15,6 +16,21 @@ class _FavoriteSetButtonState extends State<FavoriteSetButton> {
     isFavorite = Provider.of<GlobalData>(context).checkForFavoriteCategorie();
   }
 
+    void showFlushBar(BuildContext context, String msg) {
+    Flushbar(
+      message: msg,
+      // Ajouter a la liste des med administré
+      duration: Duration(seconds: 2),
+      margin: EdgeInsets.all(8),
+      borderRadius: 8,
+      icon: Icon(
+        FontAwesomeIcons.solidHeart,
+        size: 20.0,
+        color: Colors.yellow,
+      ),
+    )..show(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     checkIsFavorite(context);
@@ -24,6 +40,7 @@ class _FavoriteSetButtonState extends State<FavoriteSetButton> {
           (isFavorite) ? FontAwesomeIcons.solidHeart : FontAwesomeIcons.heart),
       onPressed: () {
         Provider.of<GlobalData>(context).setFavoriteCategorie();
+        showFlushBar(context, (isFavorite)? 'Cette page a été retiré de vos favoris' : 'Cette page a été ajouté à vous favoris');
         setState(() {
           checkIsFavorite(context);
         });
