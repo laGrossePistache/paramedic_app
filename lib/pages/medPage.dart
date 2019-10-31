@@ -15,8 +15,21 @@ import 'homePage.dart';
 
 MedicamentData currentMedicamentData;
 
-class MedPage extends StatelessWidget {
+class MedPage extends StatefulWidget {
   static const id = 'medPage';
+
+  @override
+  _MedPageState createState() => _MedPageState();
+}
+
+class _MedPageState extends State<MedPage> {
+  int _currentIndex = 1;
+  final List<Widget> _children = [
+    MedInfoTab(),
+    MedInclusionTab(),
+    MedExclusionTab(),
+    MedAdministrationTab(),
+  ];
 
   void setCurrentMedicamentData(ContentParamedic content) {
     if (content == ContentParamedic.salbutamol) {
@@ -25,7 +38,6 @@ class MedPage extends StatelessWidget {
   }
 
   bool checkCriteria() {
-
     bool isInclusionOkay = false;
     for (bool item in currentMedicamentData.criteresInclusion) {
       if (item == true) isInclusionOkay = true;
@@ -55,7 +67,8 @@ class MedPage extends StatelessWidget {
             ),
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 14),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8, vertical: 14),
                 child: Text(
                     'Voulez-vous administrer le médicament malgré les critères manquants?'),
               ),
@@ -91,72 +104,73 @@ class MedPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    setCurrentMedicamentData(
-        Provider.of<GlobalData>(context).currentCategorie.content);
+    if (currentMedicamentData == null) {
+      setCurrentMedicamentData(
+          Provider.of<GlobalData>(context).currentCategorie.content);
+    }
     return ChangeNotifierProvider.value(
       value: currentMedicamentData,
       child: DefaultTabController(
         initialIndex: 0,
         length: 4,
         child: Scaffold(
-          floatingActionButton: FloatingActionButton(
-            child: Icon(
-              FontAwesomeIcons.handHoldingHeart,
-              color: Colors.blue[800],
-              size: 20.0,
-            ),
-            backgroundColor: Colors.yellow,
-            onPressed: () async {
-              if (!checkCriteria()) {
-                await _askedToLead(context);
-              } else {
-                //TODO; add time  to list for last med
-                currentMedicamentData.resetMedState();
-                showFlushBar(context);
-              }
-            },
-          ),
-          appBar: AppBar(
-            leading: IconButton(
-              icon: Icon(
-                Icons.arrow_back,
+            floatingActionButton: FloatingActionButton(
+              child: Icon(
+                FontAwesomeIcons.handHoldingHeart,
+                color: Colors.blue[800],
+                size: 20.0,
               ),
-              onPressed: () => Navigator.pushNamed(context, HomePage.id),
+              backgroundColor: Colors.yellow,
+              onPressed: () async {
+                if (!checkCriteria()) {
+                  await _askedToLead(context);
+                } else {
+                  //TODO; add time  to list for last med
+                  currentMedicamentData.resetMedState();
+                  showFlushBar(context);
+                }
+              },
             ),
-            title: Text(
-              currentMedicamentData.medicamentDataMap['name'][0],
-              style: kAppBarTitleTextStyle,
+            appBar: AppBar(
+              leading: IconButton(
+                icon: Icon(
+                  Icons.arrow_back,
+                ),
+                onPressed: () => Navigator.pushNamed(context, HomePage.id),
+              ),
+              title: Text(
+                currentMedicamentData.medicamentDataMap['name'][0],
+                style: kAppBarTitleTextStyle,
+              ),
+              actions: <Widget>[FavoriteSetButton()],
             ),
-            actions: <Widget>[FavoriteSetButton()],
-            bottom: TabBar(
-              indicatorColor: Colors.yellow,
-              labelColor: Colors.yellow,
-              unselectedLabelColor: Colors.white,
-              tabs: <Widget>[
-                Tab(
+            bottomNavigationBar: BottomNavigationBar(
+              type: BottomNavigationBarType.shifting,
+              currentIndex: _currentIndex,
+              onTap: onTapNav,
+              selectedItemColor: Colors.blue[800],
+              unselectedItemColor: Colors.blueGrey,
+              items: [
+                BottomNavigationBarItem(
+                  backgroundColor: Colors.grey[100],
                   icon: Icon(FontAwesomeIcons.info),
+                  title: Text('Renseignement'),
                 ),
-                Tab(
+                BottomNavigationBarItem(
                   icon: Icon(FontAwesomeIcons.solidCheckCircle),
+                  title: Text('Inclusion'),
                 ),
-                Tab(
+                BottomNavigationBarItem(
                   icon: Icon(FontAwesomeIcons.solidTimesCircle),
+                  title: Text('Exclusion'),
                 ),
-                Tab(
+                BottomNavigationBarItem(
                   icon: Icon(FontAwesomeIcons.syringe),
+                  title: Text('Dosages'),
                 )
               ],
             ),
-          ),
-          body: TabBarView(
-            children: <Widget>[
-              MedInfoTab(),
-              MedInclusionTab(),
-              MedExclusionTab(),
-              MedAdministrationTab(),
-            ],
-          ),
-        ),
+            body: _children.elementAt(_currentIndex)),
       ),
     );
   }
@@ -174,5 +188,11 @@ class MedPage extends StatelessWidget {
         color: Colors.yellow,
       ),
     )..show(context);
+  }
+
+  void onTapNav(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
   }
 }

@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         title: 'Paramédic App',
-        initialRoute: ExamplePage.id,
+        initialRoute: HomePage.id,
         routes: {
           HomePage.id: (context) => HomePage(),
           MedPage.id: (context) => MedPage(),

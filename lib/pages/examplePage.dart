@@ -47,7 +47,6 @@ class _ExamplePageState extends State<ExamplePage> {
               ),
             ),
             // SliverList(delegate: SliverChildListDelegate(_children),)
-            SliverList(delegate: new SliverChildListDelegate(_buildList(_currentIndex))),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -85,18 +84,5 @@ class _ExamplePageState extends State<ExamplePage> {
     setState(() {
       _currentIndex = index;
     });
-  }
-
-  List _buildList(int count) {
-    List<Widget> listItems = List();
-
-    for (int i = 0; i < count; i++) {
-      listItems.add(new Padding(
-          padding: new EdgeInsets.all(20.0),
-          child: new Text('Item ${i.toString()}',
-              style: new TextStyle(fontSize: 25.0))));
-    }
-
-    return listItems;
   }
 }
