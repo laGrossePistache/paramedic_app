@@ -4,19 +4,19 @@ import 'package:paramedic_app/models/medicamentData.dart';
 import 'package:provider/provider.dart';
 import 'medButtonCritere.dart';
 
-  MedicamentData medicamentData;
-class MedInclusionTab extends StatelessWidget {
+MedicamentData medicamentData;
 
+class MedInclusionTab extends StatelessWidget {
   List<Widget> generateMedButton() {
     List<Widget> widgetsList = [];
     List<bool> criteresInclusion = medicamentData.criteresInclusion;
     for (var i = 0; i < criteresInclusion.length; i++) {
-      widgetsList.add(
-      MedButtonCritere(
+      widgetsList.add(MedButtonCritere(
         name: medicamentData.medicamentDataMap['inclusion'][i],
         isCheck: criteresInclusion[i],
         onTap: () {
-          medicamentData.setCriteresInclusion(i, !medicamentData.criteresInclusion[i]);
+          medicamentData.setCriteresInclusion(
+              i, !medicamentData.criteresInclusion[i]);
         },
       ));
     }
@@ -40,14 +40,22 @@ class MedInclusionTab extends StatelessWidget {
               height: 15.0,
             ),
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 10.0),
-              child: Text(medicamentData.medicamentDataMap['absolu'][0], textAlign: TextAlign.center,),
+              padding: EdgeInsets.symmetric(horizontal: 10.0),
+              child: Text(
+                medicamentData.medicamentDataMap['absolu'][0],
+                textAlign: TextAlign.center,
+              ),
             ),
             Padding(
               padding: EdgeInsets.all(8.0),
-              child: Divider(thickness: 2,),
+              child: Divider(
+                thickness: 2,
+              ),
             ),
-            Column(children: generateMedButton())
+            Column(children: generateMedButton()),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 40),
+            )
           ],
         ),
       ),

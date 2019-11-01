@@ -40,7 +40,7 @@ class _FavoriteSetButtonState extends State<FavoriteSetButton> {
           (isFavorite) ? FontAwesomeIcons.solidHeart : FontAwesomeIcons.heart),
       onPressed: () {
         Provider.of<GlobalData>(context).setFavoriteCategorie();
-        showFlushBar(context, (isFavorite)? 'Cette page a été retiré de vos favoris' : 'Cette page a été ajouté à vous favoris');
+        showFlushBar(context, (isFavorite)? 'Cette page a été retiré de vos favoris' : 'Cette page a été ajouté à vos favoris');
         setState(() {
           checkIsFavorite(context);
         });

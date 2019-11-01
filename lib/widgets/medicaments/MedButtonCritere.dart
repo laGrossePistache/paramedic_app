@@ -10,16 +10,22 @@ class MedButtonCritere extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: EdgeInsets.symmetric(vertical: 6, horizontal: 5),
+      color: (isCheck)? Colors.yellow[300]: Colors.grey[300],
       elevation: 3.0,
-      child: ListTile(
-          leading: Icon((isCheck)
-              ? FontAwesomeIcons.checkSquare
-              : FontAwesomeIcons.square),
-          title: Text(
-            name,
-            style: TextStyle(fontWeight: (isCheck)? FontWeight.bold: FontWeight.normal),
-          ),
-          onTap: onTap),
+      child: Padding(
+        padding:  EdgeInsets.symmetric(vertical: 2),
+        child: ListTile(
+            leading: Icon((isCheck)
+                ? FontAwesomeIcons.checkSquare
+                : FontAwesomeIcons.square),
+            title: Text(
+              name,
+              style: TextStyle(
+                  fontWeight: (isCheck) ? FontWeight.bold : FontWeight.normal),
+            ),
+            onTap: onTap),
+      ),
     );
   }
 }

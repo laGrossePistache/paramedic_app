@@ -34,10 +34,15 @@ class _MedPageState extends State<MedPage> {
   void setCurrentMedicamentData(ContentParamedic content) {
     if (content == ContentParamedic.salbutamol) {
       currentMedicamentData = MedicamentDataSalbutamol();
-    }
+    } else if (content == ContentParamedic.aspirine) {
+      currentMedicamentData = MedicamentDataAAS();
+    } else if (content == ContentParamedic.ntg) {
+      currentMedicamentData = MedicamentDataNtg();
+    } else if (content == ContentParamedic.ntg8A) {
+      currentMedicamentData = MedicamentDataNtg8A();  }
   }
 
-  bool checkCriteria() {
+  bool checkCriteria() { // TODO: Check si nécessite toutes les critères d'inclusion pour administrer
     bool isInclusionOkay = false;
     for (bool item in currentMedicamentData.criteresInclusion) {
       if (item == true) isInclusionOkay = true;
@@ -104,10 +109,8 @@ class _MedPageState extends State<MedPage> {
 
   @override
   Widget build(BuildContext context) {
-    if (currentMedicamentData == null) {
-      setCurrentMedicamentData(
-          Provider.of<GlobalData>(context).currentCategorie.content);
-    }
+    setCurrentMedicamentData(
+        Provider.of<GlobalData>(context).currentCategorie.content);
     return ChangeNotifierProvider.value(
       value: currentMedicamentData,
       child: DefaultTabController(

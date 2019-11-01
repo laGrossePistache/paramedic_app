@@ -109,7 +109,8 @@ class MedExclusionTab extends StatelessWidget {
             ),
             Column(
               children: generateExceptionText(),
-            )
+            ),
+            Padding(padding: EdgeInsets.symmetric(vertical: 40),)
           ],
         ),
       ),

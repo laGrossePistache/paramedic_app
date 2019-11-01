@@ -37,6 +37,9 @@ class MedInfoTab extends StatelessWidget {
             ),
             Column(
               children: generateDescription(),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 40),
             )
           ],
         ),

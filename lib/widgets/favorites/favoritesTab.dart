@@ -42,7 +42,8 @@ class FavoritesTab extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(8.0),
             ),
-            Column(children: generateFavButton(context))
+            Column(
+              children: generateFavButton(context))
           ],
         ),
       ),
