@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:paramedic_app/widgets/categories/categoriesTab.dart';
-import 'package:paramedic_app/widgets/favorites/favoritesTab.dart';
+import 'package:paramedic_app/widgets/homePage/categories/categoriesTab.dart';
+import 'package:paramedic_app/widgets/homePage/favorites/favoritesTab.dart';
+import 'package:paramedic_app/widgets/homePage/homeTab.dart';
 
 class HomePage extends StatefulWidget {
   static const id = 'homePage';
@@ -13,7 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 1;
   final List<Widget> _children = [
-    Icon(FontAwesomeIcons.home),
+    HomeTab(),
     CategoriesTab(),
     FavoritesTab(),
     Icon(FontAwesomeIcons.solidUser),
@@ -22,13 +23,22 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(FontAwesomeIcons.heartbeat),
-        title: Text(
-          'Paramédic App',
+        appBar: AppBar(
+          leading: Container(
+            margin: EdgeInsets.all(5),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage('images/logo.png'),
+              ),
+            ),
+          ),
+          title: Text(
+            'Paramédic App',
+          ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
+        bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.shifting,
           currentIndex: _currentIndex,
           onTap: onTapNav,
@@ -53,11 +63,10 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
-      body: _children.elementAt(_currentIndex)
-    );
+        body: _children.elementAt(_currentIndex));
   }
 
-  void onTapNav(int index){
+  void onTapNav(int index) {
     setState(() {
       _currentIndex = index;
     });

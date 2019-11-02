@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paramedic_app/constant.dart';
 import 'package:paramedic_app/models/medicamentData.dart';
+import 'package:paramedic_app/widgets/medicaments/medCheckButton.dart';
 import 'package:provider/provider.dart';
 import 'medButtonCritere.dart';
 
@@ -45,6 +46,16 @@ class MedInclusionTab extends StatelessWidget {
                 medicamentData.medicamentDataMap['absolu'][0],
                 textAlign: TextAlign.center,
               ),
+            ),
+            SizedBox(height: 8.0,),
+            MedCheckButton(
+              onPressed: () {
+                for (var i = 0;
+                    i < medicamentData.medicamentDataMap['inclusion'].length;
+                    i++) {
+                  medicamentData.setCriteresInclusion(i, true);
+                }
+              },
             ),
             Padding(
               padding: EdgeInsets.all(8.0),

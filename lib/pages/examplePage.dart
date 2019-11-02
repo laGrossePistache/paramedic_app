@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:paramedic_app/widgets/categories/categoriesTab.dart';
-import 'package:paramedic_app/widgets/favorites/favoritesTab.dart';
+import 'package:paramedic_app/widgets/homePage/categories/categoriesTab.dart';
+import 'package:paramedic_app/widgets/homePage/favorites/favoritesTab.dart';
 
 class ExamplePage extends StatefulWidget {
   static const id = 'examplePage';

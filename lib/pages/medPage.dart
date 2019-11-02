@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:paramedic_app/constant.dart';
 import 'package:paramedic_app/models/globalData.dart';
 import 'package:paramedic_app/models/medicamentData.dart';
-import 'package:paramedic_app/widgets/favorites/favoriteSetButton.dart';
+import 'package:paramedic_app/widgets/homePage/favorites/favoriteSetButton.dart';
 import 'package:paramedic_app/widgets/medicaments/medAdministrationTab.dart';
 import 'package:paramedic_app/widgets/medicaments/medExclusionTab.dart';
 import 'package:paramedic_app/widgets/medicaments/medInclusionTab.dart';
@@ -22,6 +22,7 @@ class MedPage extends StatefulWidget {
   _MedPageState createState() => _MedPageState();
 }
 
+@override
 class _MedPageState extends State<MedPage> {
   int _currentIndex = 1;
   final List<Widget> _children = [
@@ -31,7 +32,13 @@ class _MedPageState extends State<MedPage> {
     MedAdministrationTab(),
   ];
 
+  void initState() {
+    super.initState();
+    currentMedicamentData = null;
+  }
+
   void setCurrentMedicamentData(ContentParamedic content) {
+    if (currentMedicamentData != null) return;
     if (content == ContentParamedic.salbutamol) {
       currentMedicamentData = MedicamentDataSalbutamol();
     } else if (content == ContentParamedic.aspirine) {
@@ -39,13 +46,29 @@ class _MedPageState extends State<MedPage> {
     } else if (content == ContentParamedic.ntg) {
       currentMedicamentData = MedicamentDataNtg();
     } else if (content == ContentParamedic.ntg8A) {
-      currentMedicamentData = MedicamentDataNtg8A();  }
+      currentMedicamentData = MedicamentDataNtg8A();
+    } else if (content == ContentParamedic.nalaxone) {
+      currentMedicamentData = MedicamentDataNalaxone();
+    } else if (content == ContentParamedic.glucagon) {
+      currentMedicamentData = MedicamentDataGlucagon();
+    } else if (content == ContentParamedic.epinephrine) {
+      currentMedicamentData = MedicamentDataEpinephrine();
+    }
   }
 
-  bool checkCriteria() { // TODO: Check si nécessite toutes les critères d'inclusion pour administrer
+  bool checkCriteria() {
     bool isInclusionOkay = false;
-    for (bool item in currentMedicamentData.criteresInclusion) {
-      if (item == true) isInclusionOkay = true;
+    if (currentMedicamentData.criteresInclusionsTousNecessaire) {
+      isInclusionOkay = true;
+      for (bool item in currentMedicamentData.criteresInclusion) {
+        if (item == false) {
+          isInclusionOkay = false;
+        }
+      }
+    } else {
+      for (bool item in currentMedicamentData.criteresInclusion) {
+        if (item == true) isInclusionOkay = true;
+      }
     }
     bool isExclusionOkay = true;
     for (bool item in currentMedicamentData.criteresExclusion) {
@@ -139,7 +162,10 @@ class _MedPageState extends State<MedPage> {
                 icon: Icon(
                   Icons.arrow_back,
                 ),
-                onPressed: () => Navigator.pushNamed(context, HomePage.id),
+                onPressed: () {
+                  currentMedicamentData = null;
+                  Navigator.pushNamed(context, HomePage.id);
+                },
               ),
               title: Text(
                 currentMedicamentData.medicamentDataMap['name'][0],

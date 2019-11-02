@@ -4,6 +4,7 @@ import 'package:paramedic_app/constant.dart';
 import 'package:paramedic_app/models/medicamentData.dart';
 import 'package:provider/provider.dart';
 import 'medButtonCritere.dart';
+import 'medCheckButton.dart';
 
 MedicamentData medicamentData;
 
@@ -52,40 +53,14 @@ class MedExclusionTab extends StatelessWidget {
             SizedBox(
               height: 15.0,
             ),
-            Align(
-              alignment: Alignment.center,
-              child: SizedBox(
-                width: 150,
-                child: RaisedButton(
-                  elevation: 3,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      side: BorderSide(color: Colors.blue[800], width: 0.5)),
-                  color: Colors.white,
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        FontAwesomeIcons.check,
-                        size: 15,
-                      ),
-                      Expanded(
-                          child: Text(
-                        'Tout cocher',
-                        textAlign: TextAlign.center,
-                      ))
-                    ],
-                  ),
-                  onPressed: () {
-                    for (var i = 0;
-                        i <
-                            medicamentData
-                                .medicamentDataMap['exclusion'].length;
-                        i++) {
-                      medicamentData.setCriteresExclusion(i, true);
-                    }
-                  },
-                ),
-              ),
+            MedCheckButton(
+              onPressed: () {
+                for (var i = 0;
+                    i < medicamentData.medicamentDataMap['exclusion'].length;
+                    i++) {
+                  medicamentData.setCriteresExclusion(i, true);
+                }
+              },
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
@@ -110,7 +85,9 @@ class MedExclusionTab extends StatelessWidget {
             Column(
               children: generateExceptionText(),
             ),
-            Padding(padding: EdgeInsets.symmetric(vertical: 40),)
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 40),
+            )
           ],
         ),
       ),

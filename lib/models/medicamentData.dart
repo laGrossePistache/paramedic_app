@@ -119,7 +119,9 @@ class MedicamentDataAAS extends MedicamentData {
     'dosage': [
       '320 mg',
     ],
-    'repetition': ['Ne peut pas être répété (Maximum 1 administration)']
+    'repetition': [
+      'L\'administration ne doit pas être répété (Maximum 1 administration)'
+    ]
   };
 }
 
@@ -210,6 +212,9 @@ class MedicamentDataNtg8A extends MedicamentData {
 
 class MedicamentDataNalaxone extends MedicamentData {
   @override
+  final bool _criteresInclusionNecessaires = true;
+
+  @override
   final Map<String, List<String>> medicamentDataMap = {
     'name': ['Nalaxone - Med.12'],
     'descriptions': ['Ceci est un descriptions de l\'application du protocole'],
@@ -229,14 +234,71 @@ class MedicamentDataNalaxone extends MedicamentData {
     'exception': [
       'Surveiller l\'apparition de critères d\'exclusion post nalaxone'
     ],
-    'administration': ['Le salbutamol s\'administre par nébulisation'], // TODO: Terminé nalaxone
+    'administration': [
+      'Le nalaxone s\'administre par voie intranasale (IN) et par injection intramusculaire (IM)'
+    ],
     'dosage': [
-      '8 ans et + ou 25kg et + : 5 mg',
-      '1 à 7 ans ou moins de 25kg: 2.5 mg ',
-      'Moins de 1 ans : 1.25 mg '
+      '0.4 mg IN q3 minutes.',
+      '0.4 mg IM q5 minutes.',
+      '2.0 mg IM & IN si aucune réponse ou réponse incomplète'
     ],
     'repetition': [
-      'Répéter 2 fois (maximum 3 administration) si les critères sont toujours présents'
+      '3 doses maximum (1.2 mg) de 0.4 mg IN (q3min) ou IM (q5min), si toujours aucune réponse ou incomplète, administrer 2.0 mg IN ou IM. Dans le cas d\'un patient en ACR, administrer 2.0 mg dès que possible avant la 2e analyse et une deuxième dose 2.0 mg avant l\'analyse suivante (Sans arrêter RCR)',
     ]
   };
 }
+
+class MedicamentDataGlucagon extends MedicamentData {
+  @override
+  final Map<String, List<String>> medicamentDataMap = {
+    'name': ['Glucagon - Med.16'],
+    'descriptions': ['Ceci est un descriptions de l\'application du protocole'],
+    'absolu': [
+      'Le glucagon doit être administré dans les cas de trauma, postconvulsion et d\'AVC suspecté malgré la capacité du patient a prendre de l\'instaglucose',
+    ],
+    'inclusion': [
+      'Glycémie capillaire < 4mmol/L',
+    ],
+    'exclusion': ['Anaphylaxie connue au latex'],
+    'exception': [''],
+    'administration': [
+      'Le glucagon s\'administre par injection intramusculaire (IM)'
+    ],
+    'dosage': [
+      '8 ans et + ou 25kg et + : 1 mg',
+      '7 ans et - ou - de 25kg : 0.5 mg',
+    ],
+    'repetition': [
+      'L\'administration ne doit pas être répété (Maximum 1 administration)'
+    ]
+  };
+}
+
+class MedicamentDataEpinephrine extends MedicamentData {
+  @override
+  final Map<String, List<String>> medicamentDataMap = {
+    'name': ['Épinéphrine - Med.17'],
+    'descriptions': ['Ceci est un descriptions de l\'application du protocole'],
+    'absolu': [
+      'Contact allergène connu ou suspecté dans les 4 heures précédant le début des symptômes ou administration d’épinéphrine pour une réaction anaphylactique dans les derniers 7 jours (réaction biphasique) AVEC un de ses critères:',
+    ],
+    'inclusion': [
+      'Présence d\'une défaillance circulatoire ou détresse respiratoire',
+      'Présence d\' au moins 2 présentations cliniques suivantes: Urticaire ou angioédème / Difficulté respiratoire / Défaillance circulatoire / Symptômes gastro-intestinaux'
+    ],
+    'exclusion': [],
+    'exception': [''],
+    'administration': [
+      'Le glucagon s\'administre par injection intramusculaire (IM)'
+    ],
+    'dosage': [
+      '8 ans et + ou 25kg et + : 0.3 mg',
+      '7 ans et - ou - de 25kg : 0.15 mg',
+      'ACR - Post 1ère tentative intubation: 0.5 mg'
+    ],
+    'repetition': [
+      'Répêter aux 5 minutes si détérioration du patient ou aux 10 minutes s\'il n\'y a pas d\'amélioration ou que les critères sont encore présents. Dans le cas d\'ACR, administrer 0.5mg post 1ere tentative d\'intubation',
+    ]
+  };
+}
+

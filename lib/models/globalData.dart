@@ -4,14 +4,28 @@ On l'utilise pour le StateManagement
 */
 import 'package:flutter/foundation.dart';
 import 'package:paramedic_app/models/categorieDataRetriever.dart';
+import 'package:paramedic_app/models/persistantData.dart';
 
 class GlobalData extends ChangeNotifier {
   CategorieData _currentCategorie;
   List<CategorieData> _favoritesCategories = [];
+  String _username = 'username';
+
+  //Constructor
+  GlobalData() {
+    retrievesData();
+  }
+
+  void retrievesData() async {
+    PersistantData persistantData = PersistantData();
+    _username = await persistantData.readUsername();
+    _favoritesCategories = await persistantData.readFavoritesPages();
+  }
 
 // Getter
   CategorieData get currentCategorie => _currentCategorie;
   List<CategorieData> get favoritesCategories => _favoritesCategories;
+  String get getUsername => _username;
 
 // Setter
   set currentCategorie(CategorieData newCategorieData) {
@@ -40,6 +54,8 @@ class GlobalData extends ChangeNotifier {
     } else {
       answer = 'Vous avez déjà atteint le maximum de page favoris (10)';
     }
+    PersistantData persistantData = PersistantData();
+    persistantData.saveFavoritesPages(_favoritesCategories);
     return answer;
   }
 

@@ -38,7 +38,7 @@ class CategorieDataRetriever {
     CategorieData(
         name: 'Épinéphrine - Med.17: Anaphylaxie',
         page: MedPage.id,
-        content: ContentParamedic.glucagon),
+        content: ContentParamedic.epinephrine),
   ];
 
   List<CategorieData> get getCategorieDataMedicaments => _medicamentsDatas;
