@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:paramedic_app/pages/examplePage.dart';
 import 'models/globalData.dart';
 import 'pages/homePage.dart';
 import 'pages/medPage.dart';
@@ -31,7 +30,6 @@ class MyApp extends StatelessWidget {
         routes: {
           HomePage.id: (context) => HomePage(),
           MedPage.id: (context) => MedPage(),
-          ExamplePage.id: (context) => ExamplePage()
         },
       ),
     );
