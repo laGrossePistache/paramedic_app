@@ -56,9 +56,12 @@ class MedAdministrationTab extends StatelessWidget {
               ),
             ),
             SizedBox(height: 5),
-            Text(
-              medicamentData.medicamentDataMap['repetition'][0],
-              textAlign: TextAlign.center,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.0),
+              child: Text(
+                medicamentData.medicamentDataMap['repetition'][0],
+                textAlign: TextAlign.left,
+              ),
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 40),

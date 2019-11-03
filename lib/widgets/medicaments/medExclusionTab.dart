@@ -30,7 +30,7 @@ class MedExclusionTab extends StatelessWidget {
     for (var i = 0; i < exception.length; i++) {
       widgetsList.add(Padding(
         padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 5.0),
-        child: Text('- ${exception[i]}'),
+        child: Text(exception[i]),
       ));
     }
     return widgetsList;

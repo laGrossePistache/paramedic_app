@@ -81,7 +81,7 @@ class MedicamentDataSalbutamol extends MedicamentData {
     'administration': ['Le salbutamol s\'administre par nébulisation'],
     'dosage': [
       '8 ans et + ou 25kg et + : 5 mg',
-      '1 à 7 ans ou moins de 25kg: 2.5 mg ',
+      '1 à 7 ans ou - de 25kg: 2.5 mg ',
       'Moins de 1 ans : 1.25 mg '
     ],
     'repetition': [
@@ -176,14 +176,14 @@ class MedicamentDataNtg8A extends MedicamentData {
     'name': ['NTG - Med.8A'],
     'descriptions': ['Ceci est un descriptions de l\'application du protocole'],
     'absolu': [
-      'Dyspnée avouée ou apparente chez un patient dont la dyspnée est d\'origine cardiaque probable, tous les critères d\'inclusion sont nécessaires: '
+      'Dyspnée avouée ou apparente chez un patient dont la dyspnée est d\'origine cardiaque probable. \n\nTous les critères d\'inclusion sont nécessaires: '
     ],
     'inclusion': [
       'Âge ≥ 35 ans',
       'Dyspnée',
-      'Antécédent: Insuffisance cardiaque, Infarctus aigu du myocarde ou angine de poitrine (MCAS)',
-      'Saturation A.A < 93% ou 94% avec oxygène à haute concentration (100%)',
-      'Patient avec état d\'éveil: Alerte ou Verbal',
+      'Patient avec antécédent MCAS:\n- Insuffisance cardiaque\n- Infarctus aigu du myocarde\n- Angine de poitrine',
+      'SpO2 A.A < 93%\n ou\nSpO2 < 94% avec oxygène à haute concentration (100%)',
+      'Patient avec état d\'éveil: "A" ou "V"',
       'TAsys ≥ 160 mmHg'
     ],
     'exclusion': [
@@ -225,7 +225,7 @@ class MedicamentDataNalaxone extends MedicamentData {
       'Âge ≥ 4 ans',
       'Suspicion d\'intoxication ou surdosage aux opioïdes',
       'État d\'éveil: "P" ou "U"',
-      'Bradypnée ≤ 10/min (12 ans et +) ou Bradypnée ≤ 16/min (4 à 11 ans)',
+      'Bradypnée ≤ 10/min (12 ans et +)\n ou\nBradypnée ≤ 16/min (4 à 11 ans)',
     ],
     'exclusion': [
       'Allergie au nalaxone',
@@ -243,7 +243,7 @@ class MedicamentDataNalaxone extends MedicamentData {
       '2.0 mg IM & IN si aucune réponse ou réponse incomplète'
     ],
     'repetition': [
-      '3 doses maximum (1.2 mg) de 0.4 mg IN (q3min) ou IM (q5min), si toujours aucune réponse ou incomplète, administrer 2.0 mg IN ou IM. Dans le cas d\'un patient en ACR, administrer 2.0 mg dès que possible avant la 2e analyse et une deuxième dose 2.0 mg avant l\'analyse suivante (Sans arrêter RCR)',
+      '- 3 doses maximum (1.2 mg) de 0.4 mg IN (q3min) ou IM (q5min)\n\n- Si toujours aucune réponse ou incomplète, administrer 2.0 mg IN ou IM.\n\n- En cas d\'un patient en ACR, administrer 2.0 mg dès que possible avant la 2e analyse et une deuxième dose 2.0 mg avant l\'analyse suivante (Sans arrêter RCR)',
     ]
   };
 }
@@ -280,11 +280,11 @@ class MedicamentDataEpinephrine extends MedicamentData {
     'name': ['Épinéphrine - Med.17'],
     'descriptions': ['Ceci est un descriptions de l\'application du protocole'],
     'absolu': [
-      'Contact allergène connu ou suspecté dans les 4 heures précédant le début des symptômes ou administration d’épinéphrine pour une réaction anaphylactique dans les derniers 7 jours (réaction biphasique) AVEC un de ses critères:',
+      'Contact allergène connu ou suspecté dans les 4 heures précédant le début des symptômes ou administration d’épinéphrine pour une réaction anaphylactique dans les derniers 7 jours (réaction biphasique) \nLe patient doit présenter une des présentations cliniques ci-dessous:',
     ],
     'inclusion': [
       'Présence d\'une défaillance circulatoire ou détresse respiratoire',
-      'Présence d\' au moins 2 présentations cliniques suivantes: Urticaire ou angioédème / Difficulté respiratoire / Défaillance circulatoire / Symptômes gastro-intestinaux'
+      'Présence d\' au moins 2 présentations cliniques suivantes: \n- Urticaire ou angioédème  \n-Difficulté respiratoire \n- Défaillance circulatoire \n- Symptômes gastro-intestinaux'
     ],
     'exclusion': [],
     'exception': [''],
@@ -297,7 +297,7 @@ class MedicamentDataEpinephrine extends MedicamentData {
       'ACR - Post 1ère tentative intubation: 0.5 mg'
     ],
     'repetition': [
-      'Répêter aux 5 minutes si détérioration du patient ou aux 10 minutes s\'il n\'y a pas d\'amélioration ou que les critères sont encore présents. Dans le cas d\'ACR, administrer 0.5mg post 1ere tentative d\'intubation',
+      '- Répêter aux 5 minutes si détérioration du patient ou aux 10 minutes s\'il n\'y a pas d\'amélioration ou que les critères sont encore présents. \n\n- En cas d\'ACR, administrer 0.5mg post 1ere tentative d\'intubation',
     ]
   };
 }
