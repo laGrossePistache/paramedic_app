@@ -14,7 +14,6 @@ class FavoritesTab extends StatelessWidget {
       widgetsList.add(
         FavoritesButton(
           title: categoriesFav[i].name,
-          colorsNegative: false,
           onPressed: () {
             Provider.of<GlobalData>(context).currentCategorie =
                 categoriesFav[i];

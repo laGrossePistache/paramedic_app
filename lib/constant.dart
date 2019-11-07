@@ -10,7 +10,10 @@ enum ContentParamedic{
   glucagon,
   epinephrine,
   nalaxone,
-  salbutamol
+  salbutamol,
+  tech10,
+  cpap,
+  oxylator,
 }
 const kAppBarTitleTextStyle = TextStyle(color: Colors.yellow,
 fontWeight: FontWeight.bold);
@@ -26,3 +29,6 @@ const kSubTitleTextStyleTab = TextStyle(
     fontWeight: FontWeight.bold,
     fontSize: 16.0,
     fontStyle: FontStyle.italic);
+
+const kColorAppBar = Color(0xff100B26);
+const kColorBackground = Color(0xffF9F622);

@@ -1,4 +1,5 @@
 import 'package:paramedic_app/pages/medPage.dart';
+import 'package:paramedic_app/pages/tech10.dart';
 import '../constant.dart';
 
 class CategorieData {
@@ -10,7 +11,7 @@ class CategorieData {
 }
 
 class CategorieDataRetriever {
-    final List<CategorieData> _medicamentsDatas = [
+  final List<CategorieData> _medicamentsDatas = [
     CategorieData(
         name: 'Salbutamol - Med.8: Dyspnée',
         page: MedPage.id,
@@ -41,5 +42,19 @@ class CategorieDataRetriever {
         content: ContentParamedic.epinephrine),
   ];
 
+  final List<CategorieData> _oxygenotheraphieDatas = [
+    CategorieData(
+        name: 'Protocole - Tech.10',
+        page: Tech10.id,
+        content: ContentParamedic.tech10),
+    CategorieData(
+        name: 'CPAP', page: Tech10.id, content: ContentParamedic.cpap),
+    CategorieData(
+        name: 'Oxylator',
+        page: Tech10.id,
+        content: ContentParamedic.oxylator)
+  ];
+
   List<CategorieData> get getCategorieDataMedicaments => _medicamentsDatas;
+  List<CategorieData> get getCategorieOxygenotheraphie => _oxygenotheraphieDatas;
 }

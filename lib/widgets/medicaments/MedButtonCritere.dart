@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:paramedic_app/constant.dart';
 
 class MedButtonCritere extends StatelessWidget {
   final String name;
@@ -11,7 +12,7 @@ class MedButtonCritere extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.symmetric(vertical: 6, horizontal: 5),
-      color: (isCheck)? Colors.yellow[300]: Colors.grey[300],
+      color: (isCheck)? kColorBackground: Colors.grey[300],
       elevation: 3.0,
       child: Padding(
         padding:  EdgeInsets.symmetric(vertical: 2),

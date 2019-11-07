@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:paramedic_app/constant.dart';
+import 'package:paramedic_app/pages/tech10.dart';
 import 'models/globalData.dart';
 import 'pages/homePage.dart';
 import 'pages/medPage.dart';
@@ -15,12 +17,12 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           brightness: Brightness.light,
           appBarTheme: AppBarTheme(
-            actionsIconTheme: IconThemeData(color: Colors.yellow),
-            color: Colors.blue[800],
+            actionsIconTheme: IconThemeData(color: kColorBackground),
+            color: kColorAppBar,
             elevation: 10.0,
-            iconTheme: IconThemeData(color: Colors.yellow),
+            iconTheme: IconThemeData(color: Color(0xffF9F622)),
             textTheme: TextTheme(
-              title: TextStyle(color: Colors.yellow, fontSize: 20, fontWeight: FontWeight.bold),
+              title: TextStyle(color: Color(0xffF9F622), fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),
         ),
@@ -30,6 +32,7 @@ class MyApp extends StatelessWidget {
         routes: {
           HomePage.id: (context) => HomePage(),
           MedPage.id: (context) => MedPage(),
+          Tech10.id:(context) => Tech10(),
         },
       ),
     );

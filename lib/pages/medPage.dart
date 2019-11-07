@@ -143,10 +143,10 @@ class _MedPageState extends State<MedPage> {
             floatingActionButton: FloatingActionButton(
               child: Icon(
                 FontAwesomeIcons.handHoldingHeart,
-                color: Colors.blue[800],
+                color: kColorAppBar,
                 size: 20.0,
               ),
-              backgroundColor: Colors.yellow,
+              backgroundColor: kColorBackground,
               onPressed: () async {
                 if (!checkCriteria()) {
                   await _askedToLead(context);

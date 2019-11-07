@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
           type: BottomNavigationBarType.shifting,
           currentIndex: _currentIndex,
           onTap: onTapNav,
-          selectedItemColor: Colors.blue[800],
+          selectedItemColor: Color(0xff0B1E30),
           unselectedItemColor: Colors.blueGrey,
           items: [
             BottomNavigationBarItem(
