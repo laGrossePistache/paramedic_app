@@ -23,47 +23,57 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: Container(
-            margin: EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage('images/logo.png'),
-              ),
+      appBar: AppBar(
+        leading: Container(
+          margin: EdgeInsets.all(5),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: AssetImage('images/logo.png'),
             ),
           ),
-          title: Text(
-            'Paramédic App',
+        ),
+        title: Text(
+          'Paramédic App',
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.shifting,
+        currentIndex: _currentIndex,
+        onTap: onTapNav,
+        selectedItemColor: Color(0xff0B1E30),
+        unselectedItemColor: Colors.blueGrey,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(FontAwesomeIcons.home),
+            title: Text('Accueil'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(FontAwesomeIcons.bookMedical),
+            title: Text('Catégories'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(FontAwesomeIcons.solidHeart),
+            title: Text('Favoris'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(FontAwesomeIcons.solidUser),
+            title: Text('Profile'),
+          )
+        ],
+      ),
+      body: DecoratedBox(
+        child: _children.elementAt(_currentIndex),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          image: DecorationImage(
+            image: AssetImage('images/backgroundApp.jpg'),
+            fit: BoxFit.cover
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.shifting,
-          currentIndex: _currentIndex,
-          onTap: onTapNav,
-          selectedItemColor: Color(0xff0B1E30),
-          unselectedItemColor: Colors.blueGrey,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.home),
-              title: Text('Accueil'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.bookMedical),
-              title: Text('Catégories'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.solidHeart),
-              title: Text('Favoris'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.solidUser),
-              title: Text('Profile'),
-            )
-          ],
-        ),
-        body: _children.elementAt(_currentIndex));
+      ),
+    );
   }
 
   void onTapNav(int index) {

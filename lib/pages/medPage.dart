@@ -140,66 +140,75 @@ class _MedPageState extends State<MedPage> {
         initialIndex: 0,
         length: 4,
         child: Scaffold(
-            floatingActionButton: FloatingActionButton(
-              child: Icon(
-                FontAwesomeIcons.handHoldingHeart,
-                color: kColorAppBar,
-                size: 20.0,
+          floatingActionButton: FloatingActionButton(
+            child: Icon(
+              FontAwesomeIcons.handHoldingHeart,
+              color: kColorAppBar,
+              size: 20.0,
+            ),
+            backgroundColor: kColorBackground,
+            onPressed: () async {
+              if (!checkCriteria()) {
+                await _askedToLead(context);
+              } else {
+                //TODO; add time  to list for last med
+                currentMedicamentData.resetMedState();
+                showFlushBar(context);
+              }
+            },
+          ),
+          appBar: AppBar(
+            leading: IconButton(
+              icon: Icon(
+                Icons.arrow_back,
               ),
-              backgroundColor: kColorBackground,
-              onPressed: () async {
-                if (!checkCriteria()) {
-                  await _askedToLead(context);
-                } else {
-                  //TODO; add time  to list for last med
-                  currentMedicamentData.resetMedState();
-                  showFlushBar(context);
-                }
+              onPressed: () {
+                currentMedicamentData = null;
+                Navigator.pushNamed(context, HomePage.id);
               },
             ),
-            appBar: AppBar(
-              leading: IconButton(
-                icon: Icon(
-                  Icons.arrow_back,
-                ),
-                onPressed: () {
-                  currentMedicamentData = null;
-                  Navigator.pushNamed(context, HomePage.id);
-                },
-              ),
-              title: Text(
-                currentMedicamentData.medicamentDataMap['name'][0],
-                style: kAppBarTitleTextStyle,
-              ),
-              actions: <Widget>[FavoriteSetButton()],
+            title: Text(
+              currentMedicamentData.medicamentDataMap['name'][0],
+              style: kAppBarTitleTextStyle,
             ),
-            bottomNavigationBar: BottomNavigationBar(
-              type: BottomNavigationBarType.shifting,
-              currentIndex: _currentIndex,
-              onTap: onTapNav,
-              selectedItemColor: Colors.blue[800],
-              unselectedItemColor: Colors.blueGrey,
-              items: [
-                BottomNavigationBarItem(
-                  backgroundColor: Colors.grey[100],
-                  icon: Icon(FontAwesomeIcons.info),
-                  title: Text('Renseignement'),
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(FontAwesomeIcons.solidCheckCircle),
-                  title: Text('Inclusion'),
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(FontAwesomeIcons.solidTimesCircle),
-                  title: Text('Exclusion'),
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(FontAwesomeIcons.syringe),
-                  title: Text('Dosages'),
-                )
-              ],
+            actions: <Widget>[FavoriteSetButton()],
+          ),
+          bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.shifting,
+            currentIndex: _currentIndex,
+            onTap: onTapNav,
+            selectedItemColor: Colors.blue[800],
+            unselectedItemColor: Colors.blueGrey,
+            items: [
+              BottomNavigationBarItem(
+                backgroundColor: Colors.grey[100],
+                icon: Icon(FontAwesomeIcons.info),
+                title: Text('Renseignement'),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(FontAwesomeIcons.solidCheckCircle),
+                title: Text('Inclusion'),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(FontAwesomeIcons.solidTimesCircle),
+                title: Text('Exclusion'),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(FontAwesomeIcons.syringe),
+                title: Text('Dosages'),
+              )
+            ],
+          ),
+          body: DecoratedBox(
+            child: _children.elementAt(_currentIndex),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              image: DecorationImage(
+                  image: AssetImage('images/backgroundApp.jpg'),
+                  fit: BoxFit.cover),
             ),
-            body: _children.elementAt(_currentIndex)),
+          ),
+        ),
       ),
     );
   }

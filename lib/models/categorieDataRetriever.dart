@@ -44,7 +44,7 @@ class CategorieDataRetriever {
 
   final List<CategorieData> _oxygenotheraphieDatas = [
     CategorieData(
-        name: 'Protocole - Tech.10',
+        name: 'Tech.10 - Oxygène et saturation',
         page: Tech10.id,
         content: ContentParamedic.tech10),
     CategorieData(
@@ -57,4 +57,12 @@ class CategorieDataRetriever {
 
   List<CategorieData> get getCategorieDataMedicaments => _medicamentsDatas;
   List<CategorieData> get getCategorieOxygenotheraphie => _oxygenotheraphieDatas;
+
+  List<CategorieData> get getAllCategories {
+    List<CategorieData> allCategoriesData = [];
+    allCategoriesData.addAll(_oxygenotheraphieDatas);
+    allCategoriesData.addAll(_medicamentsDatas);
+
+    return allCategoriesData;
+  }
 }

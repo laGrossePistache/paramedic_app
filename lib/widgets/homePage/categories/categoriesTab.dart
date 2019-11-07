@@ -35,7 +35,7 @@ class CategoriesTab extends StatelessWidget {
                       categoriesDataRetriever.getCategorieDataMedicaments,
                 ),
                 CategorieButton(
-                  icon: FontAwesomeIcons.medkit,
+                  icon: FontAwesomeIcons.wind,
                   title: 'Oxygénothérapie',
                   description:
                       'Tech.10, Oxlylator, CPAP, Combitube',

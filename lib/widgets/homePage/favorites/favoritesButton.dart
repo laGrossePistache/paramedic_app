@@ -19,7 +19,7 @@ class FavoritesButton extends StatelessWidget {
         elevation: 3,
         padding: EdgeInsets.fromLTRB(25, 15, 25, 15),
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(3),
             // side: BorderSide(color: kColorAppBar, width: 0.5),
             ),
         color: Colors.white,

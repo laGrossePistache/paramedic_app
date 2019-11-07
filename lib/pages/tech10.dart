@@ -27,48 +27,56 @@ class Tech10 extends StatelessWidget {
         ),
         actions: <Widget>[FavoriteSetButton()],
       ),
-      body: SafeArea(
-        child: Container(
-          child: ListView(
-            children: <Widget>[
-              SizedBox(height: 10,),
-              Container(
-                margin: EdgeInsets.all(8),
-                padding: EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                  
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey[300],
+      body: DecoratedBox(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          image: DecorationImage(
+              image: AssetImage('images/backgroundApp.jpg'), fit: BoxFit.cover),
+        ),
+        child: SafeArea(
+          child: Container(
+            child: ListView(
+              children: <Widget>[
+                SizedBox(
+                  height: 10,
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'O2 à haute concentration - 100%',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      'si protocole suivant appliqué:',
-                      textAlign: TextAlign.center,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                      child: Divider(
-                        color: kColorAppBar,
-                        height: 20,
-                        thickness: 0.8,
+                Container(
+                  margin: EdgeInsets.all(8),
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[300],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'O2 à haute concentration - 100%',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
                       ),
-                    ),
-                    Text('IND.2, IND.3, ENV.1, ENV.2, ENV.6, ENV.7'),
-                    Text('REA.1, REA.3, REA.5, REA.6, REA.7'),
-                    Text('MED.2, MED.5, MED.7, MED.17'),
-                    Text('PED.1 à 5'),
-                    Text('OBS.2, OBS.4, OBS.5, OBS.6, TRAU.2, TRAU.5')
-                  ],
-                ),
-              )
-            ],
+                      Text(
+                        'si protocole suivant appliqué:',
+                        textAlign: TextAlign.center,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                        child: Divider(
+                          color: kColorAppBar,
+                          height: 20,
+                          thickness: 0.8,
+                        ),
+                      ),
+                      Text('IND.2, IND.3, ENV.1, ENV.2, ENV.6, ENV.7'),
+                      Text('REA.1, REA.3, REA.5, REA.6, REA.7'),
+                      Text('MED.2, MED.5, MED.7, MED.17'),
+                      Text('PED.1 à 5'),
+                      Text('OBS.2, OBS.4, OBS.5, OBS.6, TRAU.2, TRAU.5')
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

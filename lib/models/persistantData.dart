@@ -33,8 +33,8 @@ class PersistantData {
     final prefs = await SharedPreferences.getInstance();
     final stringList = prefs.getStringList(favoritesKey) ?? [];
     List<CategorieData> newCategorieData = [];
-    List<CategorieData> possibleCategoriesData =
-        CategorieDataRetriever().getCategorieDataMedicaments;
+    List<CategorieData> possibleCategoriesData = CategorieDataRetriever().getAllCategories;
+;
 
     for (var item in stringList) {
       ContentParamedic content =
