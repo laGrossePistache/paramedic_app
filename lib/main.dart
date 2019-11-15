@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:paramedic_app/constant.dart';
-import 'package:paramedic_app/pages/tech10.dart';
+import 'package:paramedic_app/pages/cpapPage.dart';
+import 'package:paramedic_app/pages/oxylatorPage.dart';
+import 'package:paramedic_app/pages/tech10Page.dart';
 import 'models/globalData.dart';
 import 'pages/homePage.dart';
 import 'pages/medPage.dart';
@@ -32,7 +34,9 @@ class MyApp extends StatelessWidget {
         routes: {
           HomePage.id: (context) => HomePage(),
           MedPage.id: (context) => MedPage(),
-          Tech10.id:(context) => Tech10(),
+          Tech10Page.id:(context) => Tech10Page(),
+          OxylatorPage.id:(context) => OxylatorPage(),
+          CpapPage.id:(context) => CpapPage(),
         },
       ),
     );

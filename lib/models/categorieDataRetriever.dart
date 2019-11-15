@@ -1,5 +1,7 @@
+import 'package:paramedic_app/pages/cpapPage.dart';
 import 'package:paramedic_app/pages/medPage.dart';
-import 'package:paramedic_app/pages/tech10.dart';
+import 'package:paramedic_app/pages/oxylatorPage.dart';
+import 'package:paramedic_app/pages/tech10Page.dart';
 import '../constant.dart';
 
 class CategorieData {
@@ -45,18 +47,22 @@ class CategorieDataRetriever {
   final List<CategorieData> _oxygenotheraphieDatas = [
     CategorieData(
         name: 'Tech.10 - Oxygène et saturation',
-        page: Tech10.id,
+        page: Tech10Page.id,
         content: ContentParamedic.tech10),
     CategorieData(
-        name: 'CPAP', page: Tech10.id, content: ContentParamedic.cpap),
+      name: 'C-PAP - Valve de boussignac',
+      page: CpapPage.id,
+      content: ContentParamedic.cpap,
+    ),
     CategorieData(
         name: 'Oxylator',
-        page: Tech10.id,
+        page: OxylatorPage.id,
         content: ContentParamedic.oxylator)
   ];
 
   List<CategorieData> get getCategorieDataMedicaments => _medicamentsDatas;
-  List<CategorieData> get getCategorieOxygenotheraphie => _oxygenotheraphieDatas;
+  List<CategorieData> get getCategorieOxygenotheraphie =>
+      _oxygenotheraphieDatas;
 
   List<CategorieData> get getAllCategories {
     List<CategorieData> allCategoriesData = [];

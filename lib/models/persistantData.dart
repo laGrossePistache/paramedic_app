@@ -34,7 +34,7 @@ class PersistantData {
     final stringList = prefs.getStringList(favoritesKey) ?? [];
     List<CategorieData> newCategorieData = [];
     List<CategorieData> possibleCategoriesData = CategorieDataRetriever().getAllCategories;
-;
+
 
     for (var item in stringList) {
       ContentParamedic content =

@@ -2,7 +2,7 @@
 Cela permet de garder un constance */
 import 'package:flutter/material.dart';
 
-enum ContentParamedic{
+enum ContentParamedic {
   nothing,
   aspirine,
   ntg,
@@ -15,8 +15,8 @@ enum ContentParamedic{
   cpap,
   oxylator,
 }
-const kAppBarTitleTextStyle = TextStyle(color: Colors.yellow,
-fontWeight: FontWeight.bold);
+const kAppBarTitleTextStyle =
+    TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold);
 
 const kTitleTextStyleTab = TextStyle(
     color: Colors.black54,
@@ -32,3 +32,6 @@ const kSubTitleTextStyleTab = TextStyle(
 
 const kColorAppBar = Color(0xff100B26);
 const kColorBackground = Color(0xffF9F622);
+
+const double spaceBetweenContentCard = 10.0;
+const double spaceBetweenContentItem = 3.0;
