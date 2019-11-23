@@ -35,7 +35,7 @@ class BasePage extends StatelessWidget {
               image: AssetImage('images/backgroundApp.jpg'), fit: BoxFit.cover),
         ),
         child: SafeArea(
-          child: ListView(
+          child: ListView( // TODO: Put Listview in inherited page, some page may not have use of it (like cincinnati)
             children: children
           ),
         ),

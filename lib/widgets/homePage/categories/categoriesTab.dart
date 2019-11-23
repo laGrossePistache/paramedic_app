@@ -38,10 +38,13 @@ class CategoriesTab extends StatelessWidget {
                   icon: FontAwesomeIcons.wind,
                   title: 'Oxygénothérapie',
                   description:
-                      'Tech.10, Oxlylator, CPAP, Combitube',
+                      'Tech.10, Oxlylator, CPAP - Valve de boussignac',
                   categorieData:
                       categoriesDataRetriever.getCategorieOxygenotheraphie,
                 ),
+                CategorieButton(icon: FontAwesomeIcons.bookMedical,
+                title: 'Échelle d\'évaluation',
+                description: 'EQTPT, Cincinnati, Glasgow, APGAR, Brûlures', categorieData: categoriesDataRetriever.getCategorieEvaluation,)
               ],
             ),
           ],

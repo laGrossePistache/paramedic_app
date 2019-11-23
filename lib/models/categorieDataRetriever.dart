@@ -1,3 +1,4 @@
+import 'package:paramedic_app/pages/cincinnatiPage.dart';
 import 'package:paramedic_app/pages/cpapPage.dart';
 import 'package:paramedic_app/pages/medPage.dart';
 import 'package:paramedic_app/pages/oxylatorPage.dart';
@@ -60,14 +61,22 @@ class CategorieDataRetriever {
         content: ContentParamedic.oxylator)
   ];
 
+  final List<CategorieData> _echelleEvaluationDatas = [
+    CategorieData(name: 'Échelle de Cincinnati - Dépistage AVC',
+    page: CincinnatiPage.id,
+    content: ContentParamedic.cincinnati)
+  ];
+
   List<CategorieData> get getCategorieDataMedicaments => _medicamentsDatas;
   List<CategorieData> get getCategorieOxygenotheraphie =>
       _oxygenotheraphieDatas;
+  List<CategorieData> get getCategorieEvaluation => _echelleEvaluationDatas;
 
   List<CategorieData> get getAllCategories {
     List<CategorieData> allCategoriesData = [];
     allCategoriesData.addAll(_oxygenotheraphieDatas);
     allCategoriesData.addAll(_medicamentsDatas);
+    allCategoriesData.addAll(_echelleEvaluationDatas);
 
     return allCategoriesData;
   }

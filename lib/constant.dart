@@ -14,6 +14,10 @@ enum ContentParamedic {
   tech10,
   cpap,
   oxylator,
+  cincinnati,
+  eqtpt,
+  glasgow,
+  apgar,
 }
 const kAppBarTitleTextStyle =
     TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold);
