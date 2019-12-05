@@ -74,13 +74,47 @@ class _CincinnatiPageState extends State<CincinnatiPage> {
               height: 20,
             ),
             Center(
-              child: Text('Résultat', style: kSubTitleTextStyleTab,),
+              child: Text(
+                'Résultat',
+                style: kSubTitleTextStyleTab,
+              ),
             ),
-                        Center(
+            Center(
               child: Text(getCincinnati()),
             ),
-            SizedBox(height: 8,),
-            Text('Si résultat de 1/3 ou plus, considéré comme AVC probable', textAlign: TextAlign.center, style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),)
+            SizedBox(
+              height: 8,
+            ),
+            Text(
+              'Si résultat de 1/3 ou plus, considéré comme AVC probable',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.red,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 8,
+        ),
+        ContentCard(
+          titleWidget: 'Si AVC probable',
+          backgroundTitleColor: Colors.red,
+          titleTextColor: Colors.white,
+          contentWidget: <Widget>[
+            Text(
+              'Patient candidat à la reperfusion cérébrale si tous les critères suivants sont présents: ',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30.0),
+              child: Divider(
+                color: Colors.black,
+              ),
+            ),
+            Text('- Âge ≥ 16 ans \n- A ou V sur l\'échelle de conscience\n-Délais d\'arrivée au CH < 3.5h après le début des symptômes ')
           ],
         )
       ],
@@ -105,11 +139,11 @@ class _CincinnatiPageState extends State<CincinnatiPage> {
     });
   }
 
-  String getCincinnati(){
+  String getCincinnati() {
     int value = 0;
-    if(affaissementBras) value += 1;
-    if(affaissementFacial) value += 1;
-    if(discourtInadequat) value += 1;
+    if (affaissementBras) value += 1;
+    if (affaissementFacial) value += 1;
+    if (discourtInadequat) value += 1;
     return '$value / 3';
   }
 }

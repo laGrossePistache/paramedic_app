@@ -51,9 +51,9 @@ class CpapPage extends StatelessWidget {
             DataTable(
               columns: [
                 DataColumn(
-                  label: Text('Débit/Litre par minute'),
+                  label: Expanded(child: Text('Débit/L par min')),
                 ),
-                DataColumn(label: Text('C-PAP en cmH2O'))
+                DataColumn(label: Expanded(child: Text('cmH2O')))
               ],
               rows: [
                 DataRow(
