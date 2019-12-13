@@ -8,7 +8,6 @@ import 'package:paramedic_app/widgets/homePage/favorites/favoriteSetButton.dart'
 import 'package:paramedic_app/widgets/medicaments/medAdministrationTab.dart';
 import 'package:paramedic_app/widgets/medicaments/medExclusionTab.dart';
 import 'package:paramedic_app/widgets/medicaments/medInclusionTab.dart';
-import 'package:paramedic_app/widgets/medicaments/medInfoTab.dart';
 import 'package:provider/provider.dart';
 
 import 'homePage.dart';
@@ -24,9 +23,8 @@ class MedPage extends StatefulWidget {
 
 @override
 class _MedPageState extends State<MedPage> {
-  int _currentIndex = 1;
+  int _currentIndex = 0;
   final List<Widget> _children = [
-    MedInfoTab(),
     MedInclusionTab(),
     MedExclusionTab(),
     MedAdministrationTab(),
@@ -138,7 +136,7 @@ class _MedPageState extends State<MedPage> {
       value: currentMedicamentData,
       child: DefaultTabController(
         initialIndex: 0,
-        length: 4,
+        length: 3,
         child: Scaffold(
           floatingActionButton: FloatingActionButton(
             child: Icon(
@@ -180,11 +178,6 @@ class _MedPageState extends State<MedPage> {
             selectedItemColor: Colors.blue[800],
             unselectedItemColor: Colors.blueGrey,
             items: [
-              BottomNavigationBarItem(
-                backgroundColor: Colors.grey[100],
-                icon: Icon(FontAwesomeIcons.info),
-                title: Text('Renseignement'),
-              ),
               BottomNavigationBarItem(
                 icon: Icon(FontAwesomeIcons.solidCheckCircle),
                 title: Text('Inclusion'),

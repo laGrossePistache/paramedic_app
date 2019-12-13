@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:paramedic_app/constant.dart';
 import 'package:paramedic_app/pages/cincinnatiPage.dart';
 import 'package:paramedic_app/pages/cpapPage.dart';
+import 'package:paramedic_app/pages/eqtptPage.dart';
 import 'package:paramedic_app/pages/oxylatorPage.dart';
 import 'package:paramedic_app/pages/tech10Page.dart';
 import 'models/globalData.dart';
@@ -11,10 +12,8 @@ import 'pages/medPage.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((_) {
     runApp(MyApp());
-  });
+    // TODO: Fix screen's rotation on phone
 }
 
 class MyApp extends StatelessWidget {
@@ -48,6 +47,7 @@ class MyApp extends StatelessWidget {
           OxylatorPage.id: (context) => OxylatorPage(),
           CpapPage.id: (context) => CpapPage(),
           CincinnatiPage.id: (context) => CincinnatiPage(),
+          EqtptPage.id: (context) =>  EqtptPage(),
         },
       ),
     );

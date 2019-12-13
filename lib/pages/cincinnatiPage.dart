@@ -80,7 +80,14 @@ class _CincinnatiPageState extends State<CincinnatiPage> {
               ),
             ),
             Center(
-              child: Text(getCincinnati()),
+              child: Text(
+                getCincinnati(),
+                style: (affaissementBras ||
+                        affaissementFacial ||
+                        discourtInadequat)
+                    ? TextStyle(color: Colors.red, fontWeight: FontWeight.bold)
+                    : TextStyle(color: Colors.black),
+              ),
             ),
             SizedBox(
               height: 8,
@@ -88,10 +95,11 @@ class _CincinnatiPageState extends State<CincinnatiPage> {
             Text(
               'Si résultat de 1/3 ou plus, considéré comme AVC probable',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.red,
-                fontWeight: FontWeight.bold,
-              ),
+              style: (affaissementBras ||
+                      affaissementFacial ||
+                      discourtInadequat)
+                  ? TextStyle(color: Colors.red, fontWeight: FontWeight.bold)
+                  : TextStyle(color: Colors.black, fontStyle: FontStyle.italic),
             ),
           ],
         ),
@@ -114,7 +122,8 @@ class _CincinnatiPageState extends State<CincinnatiPage> {
                 color: Colors.black,
               ),
             ),
-            Text('- Âge ≥ 16 ans \n- A ou V sur l\'échelle de conscience\n-Délais d\'arrivée au CH < 3.5h après le début des symptômes ')
+            Text(
+                '- Âge ≥ 16 ans \n- A ou V sur l\'échelle de conscience\n- Délais d\'arrivée au CH < 3.5h début des symptômes \n- Glycémie ≥ 3.0 mmol/L \n- Patient ne reçoit pas des soins de fin de vie')
           ],
         )
       ],

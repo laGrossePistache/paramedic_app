@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paramedic_app/constant.dart';
 import 'package:paramedic_app/models/medicamentData.dart';
+import 'package:paramedic_app/widgets/contentCard.dart';
 import 'package:paramedic_app/widgets/medicaments/medCheckButton.dart';
 import 'package:provider/provider.dart';
 import 'medButtonCritere.dart';
@@ -32,22 +33,27 @@ class MedInclusionTab extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.fromLTRB(8.0, 15, 8.0, 20.0),
           children: <Widget>[
-            Text(
-              'Critères d\'inclusion (${medicamentData.medicamentDataMap['inclusion'].length})',
+                        Text(
+              'Dosages (${medicamentData.medicamentDataMap['inclusion'].length})',
               textAlign: TextAlign.center,
               style: kTitleTextStyleTab,
+            ),
+            ContentCard(
+              titleWidget:
+                  'Généralité',
+              contentWidget: <Widget>[
+                Text(
+                  medicamentData.medicamentDataMap['absolu'][0],
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
             SizedBox(
               height: 15.0,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
-              child: Text(
-                medicamentData.medicamentDataMap['absolu'][0],
-                textAlign: TextAlign.center,
-              ),
+            SizedBox(
+              height: 8.0,
             ),
-            SizedBox(height: 8.0,),
             MedCheckButton(
               onPressed: () {
                 for (var i = 0;

@@ -45,7 +45,6 @@ class MedicamentData extends ChangeNotifier {
 
   void resetMedState() {
     initMedState();
-    print('should reset..');
     notifyListeners();
   }
 
@@ -59,7 +58,6 @@ class MedicamentDataSalbutamol extends MedicamentData {
   @override
   final Map<String, List<String>> medicamentDataMap = {
     'name': ['Salbutamol - Med.8'],
-    'descriptions': ['Ceci est un descriptions de l\'application du protocole'],
     'absolu': [
       'Dyspnée chez le patient avec au moins un des critères suivant:'
     ],
@@ -76,7 +74,7 @@ class MedicamentDataSalbutamol extends MedicamentData {
       'Allergie au sabultamol',
     ],
     'exception': [
-      'Le salbutamol peut être administré si une obstruction des voies respiratoires supérieurs a été résolu.'
+      '- Le salbutamol peut être administré si une obstruction des voies respiratoires supérieurs a été résolu.'
     ],
     'administration': ['Le salbutamol s\'administre par nébulisation'],
     'dosage': [
@@ -94,9 +92,8 @@ class MedicamentDataAAS extends MedicamentData {
   @override
   final Map<String, List<String>> medicamentDataMap = {
     'name': ['AAS - Med.10'],
-    'descriptions': ['Ceci est un descriptions de l\'application du protocole'],
     'absolu': [
-      'Douleur ou malaise rétrosternal non-traumatique entre l\'ombilic et la mâchoire incluant le dos et les bras persistant < 12 heures ou disparu :'
+      'Douleur ou malaise rétrosternal non-traumatique entre l\'ombilic et la mâchoire incluant le dos et les bras persistant ou disparu < 12 heures\n\nLa douleur doit être sous forme pression, étau, écrasement, poing, indigestion ou douleur d\'angine habituelle.'
     ],
     'inclusion': [
       'DTOCP - Patient de 35 ans et plus',
@@ -113,7 +110,7 @@ class MedicamentDataAAS extends MedicamentData {
       'Douleur d\'d\'origine traumatique',
     ],
     'exception': [
-      'L\'AAS peut être administré malgré que la douleur est disparue à l\'arrivé au chevet du patient.'
+      '- L\'AAS peut être administré malgré que la douleur est disparue à l\'arrivé au chevet du patient.'
     ],
     'administration': ['L\'AAS s\'administre par voie orale'],
     'dosage': [
@@ -129,9 +126,8 @@ class MedicamentDataNtg extends MedicamentData {
   @override
   final Map<String, List<String>> medicamentDataMap = {
     'name': ['NTG - Med.10'],
-    'descriptions': ['Ceci est un descriptions de l\'application du protocole'],
     'absolu': [
-      'Douleur ou malaise rétrosternal non-traumatique toujours présent entre l\'ombilic et la mâchoire incluant le dos et les bras persistant < 12 heures:'
+      'Douleur ou malaise rétrosternal non-traumatique toujours présent entre l\'ombilic et la mâchoire incluant le dos et les bras persistant < 12 heures \n\nLa douleur doit être sous forme pression, étau, écrasement, poing, indigestion ou douleur d\'angine habituelle.'
     ],
     'inclusion': [
       'DTOCP - Patient de 35 ans et plus',
@@ -155,7 +151,7 @@ class MedicamentDataNtg extends MedicamentData {
       'Tout supplément visant à améliorer la fonction sexuelle'
     ],
     'exception': [
-      'La nitroglycérine doit être administré seulement si la douleur est présente.'
+      '- La nitroglycérine doit être administré seulement si la douleur est présente.'
     ],
     'administration': ['La nitroglycérine s\'administre sublinguale'],
     'dosage': [
@@ -174,7 +170,6 @@ class MedicamentDataNtg8A extends MedicamentData {
   @override
   final Map<String, List<String>> medicamentDataMap = {
     'name': ['NTG - Med.8A'],
-    'descriptions': ['Ceci est un descriptions de l\'application du protocole'],
     'absolu': [
       'Dyspnée avouée ou apparente chez un patient dont la dyspnée est d\'origine cardiaque probable. \n\nTous les critères d\'inclusion sont nécessaires: '
     ],
@@ -200,7 +195,7 @@ class MedicamentDataNtg8A extends MedicamentData {
       'Allergie aux nitrates'
     ],
     'exception': [
-      'L\'administration de NTG dans le cas de dyspnée d\'origine cardiaque probable peut être recommencé malgré que la TAsys soit descendu sous 160 mmHg lorsque celle-ci remonte. L\'administration doit cependant être arrêté durant toute la durée de l\'intervention si la fréquence cardiaque est inférieur à 50 bpm.'
+      '- L\'administration de NTG dans le cas de dyspnée d\'origine cardiaque probable peut être recommencé malgré que la TAsys soit descendu sous 160 mmHg lorsque celle-ci remonte. L\'administration doit cependant être arrêté durant toute la durée de l\'intervention si la fréquence cardiaque est inférieur à 50 bpm.'
     ],
     'administration': ['La nitroglycérine s\'administre sublinguale'],
     'dosage': [
@@ -217,7 +212,6 @@ class MedicamentDataNalaxone extends MedicamentData {
   @override
   final Map<String, List<String>> medicamentDataMap = {
     'name': ['Nalaxone - Med.12'],
-    'descriptions': ['Ceci est un descriptions de l\'application du protocole'],
     'absolu': [
       'Intoxication volontaire ou non aux narcotiques opioïdes, tous les critères d\'inclusion doivent être présents:'
     ],
@@ -232,7 +226,7 @@ class MedicamentDataNalaxone extends MedicamentData {
       'Convulsion post nalaxone',
     ],
     'exception': [
-      'Surveiller l\'apparition de critères d\'exclusion post nalaxone'
+      '- Surveiller l\'apparition de critères d\'exclusion post nalaxone'
     ],
     'administration': [
       'Le nalaxone s\'administre par voie intranasale (IN) et par injection intramusculaire (IM)'
@@ -252,7 +246,6 @@ class MedicamentDataGlucagon extends MedicamentData {
   @override
   final Map<String, List<String>> medicamentDataMap = {
     'name': ['Glucagon - Med.16'],
-    'descriptions': ['Ceci est un descriptions de l\'application du protocole'],
     'absolu': [
       'Le glucagon doit être administré dans les cas de trauma, postconvulsion et d\'AVC suspecté malgré la capacité du patient a prendre de l\'instaglucose',
     ],
@@ -260,7 +253,7 @@ class MedicamentDataGlucagon extends MedicamentData {
       'Glycémie capillaire < 4mmol/L',
     ],
     'exclusion': ['Anaphylaxie connue au latex'],
-    'exception': [''],
+    'exception': ['Aucune particuliarité'],
     'administration': [
       'Le glucagon s\'administre par injection intramusculaire (IM)'
     ],
@@ -278,7 +271,6 @@ class MedicamentDataEpinephrine extends MedicamentData {
   @override
   final Map<String, List<String>> medicamentDataMap = {
     'name': ['Épinéphrine - Med.17'],
-    'descriptions': ['Ceci est un descriptions de l\'application du protocole'],
     'absolu': [
       'Contact allergène connu ou suspecté dans les 4 heures précédant le début des symptômes ou administration d’épinéphrine pour une réaction anaphylactique dans les derniers 7 jours (réaction biphasique) \nLe patient doit présenter une des présentations cliniques ci-dessous:',
     ],
@@ -287,9 +279,9 @@ class MedicamentDataEpinephrine extends MedicamentData {
       'Présence d\' au moins 2 présentations cliniques suivantes: \n- Urticaire ou angioédème  \n-Difficulté respiratoire \n- Défaillance circulatoire \n- Symptômes gastro-intestinaux'
     ],
     'exclusion': [],
-    'exception': [''],
+    'exception': ['Aucune mise en garde particulière'],
     'administration': [
-      'Le glucagon s\'administre par injection intramusculaire (IM)'
+      'L\'épinéphrine s\'administre par injection intramusculaire (IM)'
     ],
     'dosage': [
       '8 ans et + ou 25kg et + : 0.3 mg',

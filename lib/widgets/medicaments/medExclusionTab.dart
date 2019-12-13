@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paramedic_app/constant.dart';
 import 'package:paramedic_app/models/medicamentData.dart';
+import 'package:paramedic_app/widgets/contentCard.dart';
 import 'package:provider/provider.dart';
 import 'medButtonCritere.dart';
 import 'medCheckButton.dart';
@@ -29,8 +30,8 @@ class MedExclusionTab extends StatelessWidget {
     List<String> exception = medicamentData.medicamentDataMap['exception'];
     for (var i = 0; i < exception.length; i++) {
       widgetsList.add(Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 5.0),
-        child: Text(exception[i]),
+        padding: EdgeInsets.symmetric(horizontal: 3.0, vertical: 5.0),
+        child: Text(exception[i] ,textAlign: TextAlign.left,),
       ));
     }
     return widgetsList;
@@ -81,9 +82,7 @@ class MedExclusionTab extends StatelessWidget {
                 thickness: 2,
               ),
             ),
-            Column(
-              children: generateExceptionText(),
-            ),
+            ContentCard(titleWidget: 'Mise en garde', backgroundTitleColor: Colors.red, titleTextColor: Colors.white, contentWidget: generateExceptionText(),),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 40),
             )

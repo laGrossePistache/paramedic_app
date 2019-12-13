@@ -1,5 +1,6 @@
 import 'package:paramedic_app/pages/cincinnatiPage.dart';
 import 'package:paramedic_app/pages/cpapPage.dart';
+import 'package:paramedic_app/pages/eqtptPage.dart';
 import 'package:paramedic_app/pages/medPage.dart';
 import 'package:paramedic_app/pages/oxylatorPage.dart';
 import 'package:paramedic_app/pages/tech10Page.dart';
@@ -62,9 +63,14 @@ class CategorieDataRetriever {
   ];
 
   final List<CategorieData> _echelleEvaluationDatas = [
-    CategorieData(name: 'Échelle de Cincinnati - Dépistage AVC',
-    page: CincinnatiPage.id,
-    content: ContentParamedic.cincinnati)
+    CategorieData(
+        name: 'Échelle de Cincinnati - Dépistage AVC',
+        page: CincinnatiPage.id,
+        content: ContentParamedic.cincinnati),
+    CategorieData(
+        name: 'Échelle québeçoise de triage préhospitalier en traumatologie',
+        page: EqtptPage.id,
+        content: ContentParamedic.eqtpt)
   ];
 
   List<CategorieData> get getCategorieDataMedicaments => _medicamentsDatas;
