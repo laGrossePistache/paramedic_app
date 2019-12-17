@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:paramedic_app/widgets/homePage/categories/categoriesTab.dart';
 import 'package:paramedic_app/widgets/homePage/favorites/favoritesTab.dart';
 import 'package:paramedic_app/widgets/homePage/homeTab.dart';
+import 'package:paramedic_app/widgets/homePage/profileTab.dart';
 
 class HomePage extends StatefulWidget {
   static const id = 'homePage';
@@ -17,7 +18,7 @@ class _HomePageState extends State<HomePage> {
     HomeTab(),
     CategoriesTab(),
     FavoritesTab(),
-    Icon(FontAwesomeIcons.solidUser),
+    ProfileTab(),
   ];
 
   @override

@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      builder: (context) => GlobalData(),
+      // builder: (context) => GlobalData(),
+      create: (context) => GlobalData(),
       child: MaterialApp(
         theme: ThemeData(
           brightness: Brightness.light,
