@@ -52,7 +52,8 @@ class ProfileTab extends StatelessWidget {
                     color: kColorAppBar,
                   ),
                 ),
-                HistoriqueCard()
+                // TODO: Do historiquecard
+                //HistoriqueCard()
               ],
             )
           ],
